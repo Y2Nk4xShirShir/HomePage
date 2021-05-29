@@ -1,0 +1,28 @@
+body, html, div.first-screen-section{
+    height: 100%;
+}
+
+div.first-screen-section{
+    text-align: center;
+}
+div.first-screen-section div.loading-bar{
+    display: inline-block;
+}
+div.first-screen-section div.avatar{
+    display: inline-block;
+}
+div.first-screen-section div.avatar img{
+    display: inline-block;
+    border-radius: 100%;
+    border: 3px #3F464D solid;
+    padding: 4px;
+    width: 200px;
+    margin: 0 300px;
+}
+div.first-screen-section div.avatar-block{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
