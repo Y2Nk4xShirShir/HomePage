@@ -8,16 +8,26 @@ div.first-screen-section{
 div.first-screen-section div.loading-bar{
     display: inline-block;
 }
-div.first-screen-section div.avatar{
-    display: inline-block;
+div.first-screen-section > div.avatar-block > div{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
 }
+
+div.first-screen-section > div.avatar-block > div.loading-bar{
+    width: calc(95% - 700px);
+    height: 2px;
+}
+
 div.first-screen-section div.avatar img{
     display: inline-block;
     border-radius: 100%;
     border: 3px #3F464D solid;
     padding: 4px;
     width: 200px;
-    margin: 0 300px;
 }
 div.first-screen-section div.avatar-block{
     position: absolute;
