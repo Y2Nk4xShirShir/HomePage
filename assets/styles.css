@@ -2,7 +2,7 @@ body, html{
     height: 100%;
 }
 div.first-screen-wrapper{
-    height: 175vh;
+    height: calc(100vh + 500px);
 }
 div.first-screen-section{
     text-align: center;
