@@ -16,8 +16,18 @@
                     <img src="./assets/images/shirley_profile_img.jpg" alt="">
                 </div>
                 <div class="loading-bar-block">
-                    <div class="loading-bar left"></div>
-                    <div class="loading-bar right"></div>
+                    <div class="upper-text-wrapper">
+                        <div class="loading-bar-upper-text">
+                            在一起 <span id="togetherDay"></span> 天
+                        </div>
+                        <div class="upper-text-cover">
+
+                        </div>
+                    </div>
+                    <div class="loading-bars">
+                        <div class="loading-bar left"></div>
+                        <div class="loading-bar right"></div>
+                    </div>
                 </div>
                 <div class="avatar">
                     <img src="./assets/images/y2nk4_profile_img.jpg" alt="">
@@ -25,9 +35,38 @@
             </div>
         </div>
     </div>
+    <div>
+        <h1>Second</h1>
+    </div>
 
     <script>
+        const togetherDay = parseInt((new Date() - new Date('2021/5/23')) / 1000 / 3600 / 24)
+        document.querySelector('#togetherDay').innerHTML = togetherDay
 
+        const html = document.documentElement
+        const clientHeight = html.clientHeight
+        const firstScreenSection = document.querySelector('.first-screen-wrapper')
+        const firstScreenMaxHeight = firstScreenSection.scrollHeight - clientHeight
+        let scrollFunc = () => {
+            console.log('scroll checked', html.scrollTop, firstScreenMaxHeight)
+            // 首屏范围
+            let scrollPercentage = html.scrollTop / firstScreenMaxHeight
+            if (scrollPercentage > 1) scrollPercentage = 1
+            if (scrollPercentage < 0) scrollPercentage = 0
+            const loadingBars = document
+                  .querySelectorAll('.first-screen-section div.loading-bar-block div.loading-bar')
+
+            for (let [index, bar] of loadingBars.entries()) {
+                bar.style.setProperty('--loading_progress', scrollPercentage * 100 + '%')
+            }
+
+            document.querySelector('div.first-screen-section div.loading-bar-upper-text')
+                  .style.setProperty('--progress', -scrollPercentage * 40 + 'px')
+
+            // 第二屏内容
+        }
+        window.addEventListener('load', scrollFunc)
+        document.addEventListener('scroll', scrollFunc)
     </script>
 </body>
 </html>

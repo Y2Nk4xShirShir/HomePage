@@ -2,7 +2,7 @@ body, html{
     height: 100%;
 }
 div.first-screen-wrapper{
-    height: 200vh;
+    height: 175vh;
 }
 div.first-screen-section{
     text-align: center;
@@ -23,9 +23,10 @@ div.first-screen-section > div.avatar-block > div{
     flex-wrap: nowrap;
 }
 
-div.first-screen-section > div.avatar-block > div.loading-bar-block{
+div.first-screen-section > div.avatar-block div.loading-bar-block{
     width: calc(95% - 700px);
     height: 2px;
+    position: relative;
 }
 
 div.first-screen-section div.avatar img{
@@ -41,8 +42,13 @@ div.first-screen-section div.avatar-block{
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
-div.loading-bar-block > div.loading-bar{
+div.loading-bar-block div.loading-bar{
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -50,6 +56,34 @@ div.loading-bar-block > div.loading-bar{
     align-content: center;
     flex-wrap: nowrap;
 
-    --progress: 0;
-    width: var(--progress)
+    --loading_progress: 0;
+    width: var(--loading_progress);
+
+    height: 1px;
+    background: #3F464D;
+    padding: .75px 0;
+}
+div.first-screen-section div.upper-text-wrapper{
+    position: absolute;
+    top: 2px;
+}
+/*遮罩*/
+div.first-screen-section div.upper-text-wrapper .upper-text-cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+div.first-screen-section div.loading-bar-upper-text{
+    font-size: 25px;
+    --progress: 0px;
+
+    transform: translateY(var(--progress));
+}
+div.first-screen-section div.loading-bars{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
