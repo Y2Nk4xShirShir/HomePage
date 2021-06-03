@@ -1,9 +1,15 @@
-body, html, div.first-screen-section{
+body, html{
     height: 100%;
 }
-
+div.first-screen-wrapper{
+    height: 200vh;
+}
 div.first-screen-section{
     text-align: center;
+    height: 100vh;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
 }
 div.first-screen-section div.loading-bar{
     display: inline-block;
@@ -17,7 +23,7 @@ div.first-screen-section > div.avatar-block > div{
     flex-wrap: nowrap;
 }
 
-div.first-screen-section > div.avatar-block > div.loading-bar{
+div.first-screen-section > div.avatar-block > div.loading-bar-block{
     width: calc(95% - 700px);
     height: 2px;
 }
@@ -35,4 +41,15 @@ div.first-screen-section div.avatar-block{
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
+}
+div.loading-bar-block > div.loading-bar{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+
+    --progress: 0;
+    width: var(--progress)
 }
