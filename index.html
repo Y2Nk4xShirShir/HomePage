@@ -35,6 +35,7 @@
                 <div class="animation-img"><img src="./assets/images/flowers/rose_flower.svg"></div>
                 <div class="animation-img"><img src="./assets/images/flowers/tedd_bear.svg"></div>
                 <div class="animation-img"><img src="./assets/images/flowers/white_flower.svg"></div>
+                <div class="animation-img"><img src="./assets/images/flowers/bubble_tea.svg"></div>
             </div>
         </div>
     </div>
@@ -43,10 +44,6 @@
     </div>
 
     <script>
-        function rad2deg(red) {
-            return 180 * red / Math.PI
-        }
-
         const togetherDay = parseInt((new Date() - new Date('2021/5/23')) / 1000 / 3600 / 24)
         document.querySelector('#togetherDay').innerHTML = togetherDay
 
@@ -99,6 +96,16 @@
                     let y = .001*Math.pow(x - 542, 2) + 140
                     // 抛物线函数的一阶导数
                     let y_2 = -0.002* x + 1.084
+                    let angle = Math.atan(y_2)
+                    animation.style.setProperty('left', x - 50 + 'px')
+                    animation.style.setProperty('top', y + 'px')
+                    animation.style.setProperty('transform', `rotate(${angle}rad)`)
+                } else if (index === 3) {
+                    let x = clientWidth - (scrollPercentage * clientWidth)
+                    // 抛物线函数
+                    let y = .001*Math.pow(x - 723, 2) + 250
+                    // 抛物线函数的一阶导数
+                    let y_2 = -0.002* x + 1.446
                     let angle = Math.atan(y_2)
                     animation.style.setProperty('left', x - 50 + 'px')
                     animation.style.setProperty('top', y + 'px')
